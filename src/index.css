@@ -1,0 +1,22 @@
+/* Importando Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Variables de colores personalizados */
+:root {
+  --primary: #53e90e;
+  --secondary: #053a00;
+  --light: #f8fafc;
+  --dark: #003a0e;
+}
