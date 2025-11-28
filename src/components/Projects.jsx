@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
 import celulares1 from '../assets/celulares1.png'; // Asegúrate de que el nombre coincida
 import celulares2 from '../assets/celulares2.png';
+import TextPressure from './TextPressure';
 
 const Projects = ({ darkMode }) => {
   const projects = [
@@ -11,7 +12,7 @@ const Projects = ({ darkMode }) => {
       description: 'Aplicación de comercio electrónico con carrito de compras y pasarela de pago para un negocio de venta de celulares.',
       image: celulares1,
       tags: ['React', 'Node.js', 'PostgreSQL'],
-      frontcode: 'https://github.com/alejoalf/frontriocuartocelulares', 
+      frontcode: 'https://github.com/alejoalf/frontriocuartocelulares',
       backcode: 'https://github.com/alejoalf/frontriocuartocelulares',
       demo: 'https://frontriocuartocelulares.vercel.app/'
     },
@@ -28,10 +29,23 @@ const Projects = ({ darkMode }) => {
           viewport={{ once: true }}
           className="text-center mb-5"
         >
-          <h2 className="display-5 fw-bold mb-3">Mis Proyectos</h2>
-          <div className="border-bottom border-primary mx-auto" style={{width: '80px', height: '4px'}}></div>
+          <div style={{ position: 'relative', height: '150px', marginBottom: '1rem' }}>
+            <TextPressure
+              text="Mis Proyectos"
+              flex={true}
+              alpha={false}
+              stroke={false}
+              width={true}
+              weight={true}
+              italic={true}
+              textColor={darkMode ? "#ffffff" : "#212529"}
+              strokeColor="#ff0000"
+              minFontSize={36}
+            />
+          </div>
+          <div className="border-bottom border-primary mx-auto" style={{ width: '80px', height: '4px' }}></div>
         </motion.div>
-        
+
         <Row className="g-4">
           {projects.map((project, index) => (
             <Col md={6} lg={4} key={index}>
@@ -43,10 +57,10 @@ const Projects = ({ darkMode }) => {
               >
                 <Card className={`h-100 shadow ${darkMode ? 'bg-secondary text-light' : ''}`}>
                   <div className="d-flex align-items-center justify-content-center" style={{ height: '200px', overflow: 'hidden' }}>
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }}
                     />
                   </div>
                   <Card.Body>
@@ -54,9 +68,9 @@ const Projects = ({ darkMode }) => {
                     <Card.Text className="mb-3">{project.description}</Card.Text>
                     <div className="d-flex flex-wrap mb-3">
                       {project.tags.map((tag, tagIndex) => (
-                        <Badge 
-                          bg="primary" 
-                          className="me-2 mb-2" 
+                        <Badge
+                          bg="primary"
+                          className="me-2 mb-2"
                           key={tagIndex}
                         >
                           {tag}
@@ -65,8 +79,8 @@ const Projects = ({ darkMode }) => {
                     </div>
                     <div className="d-flex gap-3">
                       {project.frontcode && (
-                        <Button 
-                          href={project.frontcode} 
+                        <Button
+                          href={project.frontcode}
                           variant="outline-primary"
                           size="sm"
                           target="_blank"
@@ -77,8 +91,8 @@ const Projects = ({ darkMode }) => {
                         </Button>
                       )}
                       {project.backcode && (
-                        <Button 
-                          href={project.backcode} 
+                        <Button
+                          href={project.backcode}
                           variant="outline-primary"
                           size="sm"
                           target="_blank"
@@ -89,8 +103,8 @@ const Projects = ({ darkMode }) => {
                         </Button>
                       )}
                       {project.github && (
-                        <Button 
-                          href={project.github} 
+                        <Button
+                          href={project.github}
                           variant="outline-primary"
                           size="sm"
                           target="_blank"
@@ -101,8 +115,8 @@ const Projects = ({ darkMode }) => {
                         </Button>
                       )}
                       {project.demo && (
-                        <Button 
-                          href={project.demo} 
+                        <Button
+                          href={project.demo}
                           variant="primary"
                           size="sm"
                           target="_blank"
