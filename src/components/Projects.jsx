@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
 import celulares1 from '../assets/celulares1.png'; // Asegúrate de que el nombre coincida
-import celulares2 from '../assets/celulares2.png';
+import angus from '../assets/angus.png';  
 import TextPressure from './TextPressure';
 
 const Projects = ({ darkMode }) => {
@@ -14,7 +14,15 @@ const Projects = ({ darkMode }) => {
       tags: ['React', 'Node.js', 'PostgreSQL'],
       frontcode: 'https://github.com/alejoalf/frontriocuartocelulares',
       backcode: 'https://github.com/alejoalf/frontriocuartocelulares',
-      demo: 'https://frontriocuartocelulares.vercel.app/'
+      demo: 'https://riocuartocelulares.vercel.app/'
+    },
+     {
+      title: 'Angus bar',
+      description: 'Sistema web para el manejo de pedidos en un bar en tiempo real y gestion de productos.',
+      image: angus,
+      tags: ['React', 'Supabase'],
+      frontcode: 'https://github.com/alejoalf/Sistema-bar',
+      demo: 'https://sistema-bar-vert.vercel.app/'
     },
 
   ];
