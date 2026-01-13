@@ -38,7 +38,14 @@ function App() {
       </div>
       <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <ScrollStack stackPosition="0" itemDistance={50} baseScale={1} itemScale={0}>
+        <ScrollStack
+          stackPosition="calc(50% - 48px)"
+          scaleEndPosition="calc(50% - 48px)"
+          itemDistance={0}
+          baseScale={1}
+          itemScale={0}
+          itemStackDistance={0}
+        >
           <ScrollStackItem>
             <Hero darkMode={darkMode} />
           </ScrollStackItem>
