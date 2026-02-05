@@ -45,9 +45,9 @@ const About = ({ darkMode }) => {
               viewport={{ once: true }}
               className="ps-lg-4"
             >
-              <h3 className="fs-2 fw-semibold mb-3">Desarrollador Web Apasionado</h3>
+              <h3 className="fs-2 fw-semibold mb-3">Desarrollador Apasionado</h3>
               <p className="lead mb-4 text-muted">
-                Soy un desarrollador web full stack con experiencia creando productos modernos y funcionales. Trabajo con React, Node.js y bases de datos SQL.
+                Soy un desarrollador full stack con experiencia creando productos modernos y funcionales. Trabajo con React, Node.js y bases de datos SQL.
               </p>
               <p className="mb-4 text-muted">
                 Mi objetivo es construir interfaces limpias, accesibles y rápidas que entreguen valor real a usuarios y negocios.

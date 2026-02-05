@@ -29,10 +29,10 @@ const Hero = ({ darkMode }) => {
                 </span>
               </h1>
               <h2 className="fs-2 mb-4 text-secondary">
-                <DecryptedText text="Desarrollador Web Full Stack" animateOn="view" revealDirection="end" speed={100} maxIterations={20} />
+                <DecryptedText text="Desarrollador Full Stack" animateOn="view" revealDirection="end" speed={100} maxIterations={20} />
               </h2>
               <p className="lead mb-4 text-muted">
-                Apasionado por crear experiencias web precisas y veloces. Especializado en front y back con un enfoque en productos escalables.
+                Apasionado por crear experiencias precisas y veloces. Especializado en front y back con un enfoque en productos escalables.
               </p>
               <div className="d-flex gap-3 mb-4">
                 <a href="https://github.com/alejoalf" className="fs-3 text-reset">
