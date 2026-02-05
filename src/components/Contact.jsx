@@ -30,16 +30,17 @@ const Contact = ({ darkMode }) => {
 
   return (
     <section id="contact" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
-      <Container className="py-5">
+      <Container className="py-5 section-shell">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-5"
+          className="section-heading"
         >
-          <h2 className="display-5 fw-bold mb-3">Contáctame</h2>
-          <div className="border-bottom border-primary mx-auto" style={{width: '80px', height: '4px'}}></div>
+          <div className={`eyebrow mb-3 ${darkMode ? '' : 'light'}`}>Contacto</div>
+          <h2 className="display-5 fw-bold mb-3">Cuéntame tu idea</h2>
+          <div className="section-title-accent"></div>
         </motion.div>
         
         <Row className="g-4">
@@ -49,11 +50,12 @@ const Contact = ({ darkMode }) => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
+              className={`contact-pane ${darkMode ? '' : 'light'}`}
             >
               <h3 className="fs-2 fw-semibold mb-4">Información de Contacto</h3>
               <div className="d-flex flex-column gap-4">
                 <div className="d-flex align-items-start">
-                  <div className={`p-3 rounded-circle ${darkMode ? 'bg-primary' : 'bg-primary bg-opacity-10'} me-3`}>
+                  <div className={`p-3 rounded-circle ${darkMode ? 'bg-primary' : 'bg-primary bg-opacity-10'} me-3 contact-icon-circle ${darkMode ? '' : 'light'}`}>
                     <FaEnvelope className={darkMode ? 'text-white' : 'text-primary'} />
                   </div>
                   <div>
@@ -89,56 +91,60 @@ const Contact = ({ darkMode }) => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
+              className={`card-raise ${darkMode ? '' : 'light'}`}
             >
-              <h3 className="fs-2 fw-semibold mb-4">Envíame un Mensaje</h3>
-              <Form ref={form} onSubmit={sendEmail}>
-                <Form.Group className="mb-3">
-                  <Form.Control 
-                    type="text" 
-                    name="user_name"
-                    placeholder="Tu Nombre" 
-                    className={darkMode ? 'bg-secondary border-dark text-light' : ''}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control 
-                    type="email" 
-                    name="user_email"
-                    placeholder="Tu Email" 
-                    className={darkMode ? 'bg-secondary border-dark text-light' : ''}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control 
-                    type="text" 
-                    name="subject"
-                    placeholder="Asunto" 
-                    className={darkMode ? 'bg-secondary border-dark text-light' : ''}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control 
-                    as="textarea" 
-                    rows={5} 
-                    name="message"
-                    placeholder="Tu Mensaje" 
-                    className={darkMode ? 'bg-secondary border-dark text-light' : ''}
-                    required
-                  />
-                </Form.Group>
-                <Button 
-                  variant="primary" 
-                  type="submit" 
-                  size="lg"
-                >
-                  Enviar Mensaje
-                </Button>
-                {sent && <Alert variant="success" className="mt-3">¡Mensaje enviado!</Alert>}
-                {error && <Alert variant="danger" className="mt-3">Error al enviar. Intenta de nuevo.</Alert>}
-              </Form>
+              <div className="p-4 p-lg-5">
+                <h3 className="fs-2 fw-semibold mb-4">Envíame un Mensaje</h3>
+                <Form ref={form} onSubmit={sendEmail}>
+                  <Form.Group className="mb-3">
+                    <Form.Control 
+                      type="text" 
+                      name="user_name"
+                      placeholder="Tu Nombre" 
+                      className={darkMode ? 'bg-secondary border-dark text-light' : ''}
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control 
+                      type="email" 
+                      name="user_email"
+                      placeholder="Tu Email" 
+                      className={darkMode ? 'bg-secondary border-dark text-light' : ''}
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control 
+                      type="text" 
+                      name="subject"
+                      placeholder="Asunto" 
+                      className={darkMode ? 'bg-secondary border-dark text-light' : ''}
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control 
+                      as="textarea" 
+                      rows={5} 
+                      name="message"
+                      placeholder="Tu Mensaje" 
+                      className={darkMode ? 'bg-secondary border-dark text-light' : ''}
+                      required
+                    />
+                  </Form.Group>
+                  <Button 
+                    variant="primary" 
+                    type="submit" 
+                    size="lg"
+                    className="btn-animated"
+                  >
+                    Enviar Mensaje
+                  </Button>
+                  {sent && <Alert variant="success" className="mt-3">¡Mensaje enviado!</Alert>}
+                  {error && <Alert variant="danger" className="mt-3">Error al enviar. Intenta de nuevo.</Alert>}
+                </Form>
+              </div>
             </motion.div>
           </Col>
         </Row>

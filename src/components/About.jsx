@@ -5,16 +5,18 @@ import perfil from '../assets/perfil2.png'; // Asegúrate de que la ruta y el no
 const About = ({ darkMode }) => {
   return (
     <section id="about" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
-      <Container className="py-5">
+      <Container className="py-5 section-shell">
+        <div className="section-divider" aria-hidden="true"></div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-5"
+          className="section-heading"
         >
-          <h2 className="display-5 fw-bold mb-3">Sobre Mí</h2>
-          <div className="border-bottom border-primary mx-auto" style={{width: '80px', height: '4px'}}></div>
+          <div className={`eyebrow mb-3 ${darkMode ? '' : 'light'}`}>Sobre mí</div>
+          <h2 className="display-5 fw-bold mb-3">Diseño, código y foco en detalle</h2>
+          <div className="section-title-accent"></div>
         </motion.div>
         
         <Row className="align-items-center gy-4">
@@ -25,10 +27,7 @@ const About = ({ darkMode }) => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div 
-                className="d-flex align-items-center justify-content-center rounded shadow-sm" 
-                style={{ height: "400px", width: "100%", background: 'var(--primary)', overflow: 'hidden' }}
-              >
+              <div className={`media-frame ${darkMode ? '' : 'light'}`} style={{ height: '420px', width: '100%' }}>
                 <img 
                   src={perfil} 
                   alt="Foto de perfil" 
@@ -47,11 +46,11 @@ const About = ({ darkMode }) => {
               className="ps-lg-4"
             >
               <h3 className="fs-2 fw-semibold mb-3">Desarrollador Web Apasionado</h3>
-              <p className="lead mb-4">
-                Soy un desarrollador web full stack con experiencia creando aplicaciones web modernas y atractivas. Me especializo en React, Node.js y bases de datos SQL.
+              <p className="lead mb-4 text-muted">
+                Soy un desarrollador web full stack con experiencia creando productos modernos y funcionales. Trabajo con React, Node.js y bases de datos SQL.
               </p>
-              <p className="mb-4">
-                Mi objetivo es crear soluciones digitales que no solo se vean bien, sino que también proporcionen una experiencia de usuario excepcional y resuelvan problemas reales.
+              <p className="mb-4 text-muted">
+                Mi objetivo es construir interfaces limpias, accesibles y rápidas que entreguen valor real a usuarios y negocios.
               </p>
               
               <Row className="mb-4 gy-3">
@@ -72,14 +71,25 @@ const About = ({ darkMode }) => {
                   <p>Disponible</p>
                 </Col>
               </Row>
-              
-              <Button 
-                href="#contact" 
-                variant="primary"
-                size="lg"
-              >
-                Contáctame
-              </Button>
+              <div className="d-flex flex-wrap gap-3">
+                <Button 
+                  href="#contact" 
+                  variant="primary"
+                  size="lg"
+                  className="btn-animated"
+                >
+                  Contáctame
+                </Button>
+                <Button
+                  href="/cv.pdf"
+                  variant={darkMode ? 'outline-light' : 'outline-dark'}
+                  size="lg"
+                  className={`btn-animated btn-ghost ${darkMode ? '' : 'light'}`}
+                  download
+                >
+                  Descargar CV
+                </Button>
+              </div>
             </motion.div>
           </Col>
         </Row>

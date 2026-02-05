@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { Navbar as BootstrapNavbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, Container } from 'react-bootstrap';
 
-const Navbar = ({ darkMode, toggleDarkMode }) => {
+const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -10,19 +9,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       expand="lg" 
       fixed="top" 
       expanded={expanded}
-      className={darkMode ? 'bg-dark navbar-dark' : 'bg-light navbar-light'}
+      className="navbar-dark nav-glass py-2 force-dark-nav"
     >
       <Container>
-        <BootstrapNavbar.Brand href="#home" className="text-primary fw-bold">Portfolio</BootstrapNavbar.Brand>
+        <BootstrapNavbar.Brand href="#home" className="d-flex align-items-center gap-2 fw-bold">
+          <span className="badge bg-success-subtle text-dark px-3 py-2 rounded-pill">AA</span>
+          <span className="text-uppercase" style={{ letterSpacing: '0.08em' }}>Alejo Alfonso</span>
+        </BootstrapNavbar.Brand>
         <div className="d-flex d-lg-none">
-          <Button 
-            variant={darkMode ? 'dark' : 'light'} 
-            onClick={toggleDarkMode}
-            className="me-2"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? <FaSun className="text-warning" /> : <FaMoon />}
-          </Button>
           <BootstrapNavbar.Toggle 
             aria-controls="basic-navbar-nav" 
             onClick={() => setExpanded(!expanded)}
@@ -36,14 +30,6 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             <Nav.Link href="#projects" onClick={() => setExpanded(false)}>Proyectos</Nav.Link>
             <Nav.Link href="#contact" onClick={() => setExpanded(false)}>Contacto</Nav.Link>
           </Nav>
-          <Button 
-            variant={darkMode ? 'dark' : 'light'} 
-            onClick={toggleDarkMode}
-            className="d-none d-lg-block ms-2"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? <FaSun className="text-warning" /> : <FaMoon />}
-          </Button>
         </BootstrapNavbar.Collapse>
       </Container>
     </BootstrapNavbar>

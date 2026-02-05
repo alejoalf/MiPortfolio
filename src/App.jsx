@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import './App.css';
 import Navbar from './components/Navbar';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 import Hero from './components/Hero';
@@ -10,21 +11,12 @@ import Footer from './components/Footer';
 import LetterGlitch from './components/LetterGlitch';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const darkMode = true;
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('bg-dark');
-      document.body.classList.remove('bg-light');
-    } else {
-      document.body.classList.add('bg-light');
-      document.body.classList.remove('bg-dark');
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+    document.body.classList.add('bg-dark');
+    document.body.classList.remove('bg-light');
+  }, []);
 
   return (
     <div className={darkMode ? 'bg-dark text-light' : 'bg-light text-dark'} style={{ height: '100vh', overflow: 'hidden', position: 'relative' }}>
@@ -37,7 +29,7 @@ function App() {
         />
       </div>
       <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>
-        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Navbar />
         <ScrollStack
           stackPosition="calc(50% - 48px)"
           scaleEndPosition="calc(50% - 48px)"

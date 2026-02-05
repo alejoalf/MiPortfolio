@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Container, Row, Col, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
 
 const Skills = ({ darkMode }) => {
@@ -14,16 +14,18 @@ const Skills = ({ darkMode }) => {
 
   return (
     <section id="skills" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
-      <Container className="py-5">
+      <Container className="py-5 section-shell">
+        <div className="section-divider" aria-hidden="true"></div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-5"
+          className="section-heading"
         >
-          <h2 className="display-5 fw-bold mb-3">Mis Habilidades</h2>
-          <div className="border-bottom border-primary mx-auto" style={{width: '80px', height: '4px'}}></div>
+          <div className={`eyebrow mb-3 ${darkMode ? '' : 'light'}`}>Mis habilidades</div>
+          <h2 className="display-5 fw-bold mb-3">Tecnologías con las que construyo</h2>
+          <div className="section-title-accent"></div>
         </motion.div>
         
         <Row className="g-4">
@@ -34,19 +36,24 @@ const Skills = ({ darkMode }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card h-100 shadow-sm"
+                whileHover={{ y: -6, scale: 1.01 }}
+                className={`card h-100 card-raise ${darkMode ? '' : 'light'}`}
               >
                 <div className="card-body">
                   <div className="d-flex align-items-center mb-3">
                     {skill.icon}
                     <h3 className="ms-3 fs-5 fw-semibold">{skill.name}</h3>
                   </div>
-                  <ProgressBar 
-                    now={skill.level} 
-                    variant="primary" 
-                    style={{ height: '10px' }}
-                  />
-                  <p className="mt-2 text-end">{skill.level}%</p>
+                  <div className={`skill-progress ${darkMode ? '' : 'light'}`}>
+                    <motion.div
+                      className="skill-progress-fill"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: 'easeOut', delay: index * 0.08 }}
+                    />
+                  </div>
+                  <p className="mt-2 text-end mb-0">{skill.level}%</p>
                 </div>
               </motion.div>
             </Col>
