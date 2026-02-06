@@ -7,6 +7,7 @@ import angus from '../assets/angus.png';
 import gretta from '../assets/gretta.png';
 import horus from '../assets/horus.png';
 import detector from '../assets/detector.png';
+import ia from '../assets/ia.png';
 import TextPressure from './TextPressure';
 
 const Projects = ({ darkMode }) => {
@@ -67,6 +68,19 @@ const Projects = ({ darkMode }) => {
         'Interfaz sin contacto para accesibilidad y control rápido.'
       ],
       github: 'https://github.com/alejoalf/control_gestos'
+    },
+    {
+      title: 'Asistente de Voz Inteligente con Memoria Persistente',
+      description: 'Desarrollo de un asistente virtual de escritorio inspirado en J.A.R.V.I.S., capaz de mantener conversaciones fluidas y naturales mediante voz. Implementa memoria de largo plazo con SQLite para recordar preferencias, proyectos y contextos previos.',
+      image: ia,
+      tags: ['LLMs', 'SQLite', 'Voice'],
+      tech: ['Gemini 1.5', 'Llama 3', 'SQLite', 'TTS/STT', 'Gestión de latencia'],
+      highlights: [
+        'Conversación por voz con contexto persistente entre sesiones.',
+        'Memoria de largo plazo para preferencias y proyectos del usuario.',
+        'Optimización de latencia y manejo de errores de API para respuesta casi instantánea.'
+      ],
+      github: 'https://github.com/alejoalf/Asistente-Con-IA'
     }
 
   ];
