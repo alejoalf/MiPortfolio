@@ -60,7 +60,7 @@ const Contact = ({ darkMode }) => {
                   </div>
                   <div>
                     <h4 className="fs-5 fw-medium">Email</h4>
-                    <p>alejoalfonsoaa@gmail.com</p>
+                    <p className="contact-email">alejoalfonsoaa@gmail.com</p>
                   </div>
                 </div>
                 <div className="d-flex align-items-start">

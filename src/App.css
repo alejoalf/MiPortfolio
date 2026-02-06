@@ -108,6 +108,10 @@
   transform: scale(1.04);
 }
 
+.project-media {
+  border-radius: 14px 14px 0 0;
+}
+
 .btn-animated {
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
   box-shadow: 0 14px 32px rgba(141, 241, 79, 0.22);
@@ -265,6 +269,11 @@ body {
   letter-spacing: 0.01em;
 }
 
+.contact-email {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .contact-icon-circle {
   width: 50px;
   height: 50px;
@@ -296,4 +305,66 @@ body {
 .media-frame.light {
   border-color: rgba(0, 0, 0, 0.06);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 768px) {
+  .section-shell {
+    width: min(100% - 16px, 1100px);
+  }
+
+  section.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .section-shell.py-5 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .section-divider {
+    height: 28px;
+    margin: 0 -0.5rem 1.25rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .projects-title-wrap {
+    height: 110px;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-media {
+    height: 160px !important;
+  }
+
+  .project-card .card-title {
+    font-size: 1.1rem;
+  }
+
+  .project-card .card-text {
+    font-size: 0.95rem;
+  }
+
+  .project-tag {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .project-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem !important;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-pane {
+    padding: 1rem;
+  }
 }

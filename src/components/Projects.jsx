@@ -83,7 +83,7 @@ const Projects = ({ darkMode }) => {
           className="section-heading"
         >
           <div className={`eyebrow mb-3 ${darkMode ? '' : 'light'}`}>Portafolio</div>
-          <div style={{ position: 'relative', height: '150px', marginBottom: '1rem' }}>
+          <div className="projects-title-wrap" style={{ position: 'relative', height: '150px', marginBottom: '1rem' }}>
             <TextPressure
               text="Mis Proyectos"
               flex={true}
@@ -111,7 +111,7 @@ const Projects = ({ darkMode }) => {
                 whileHover={{ y: -8, scale: 1.01 }}
               >
                 <Card className={`h-100 card-raise project-card ${darkMode ? '' : 'light'}`}>
-                  <div className="d-flex align-items-center justify-content-center" style={{ height: '200px', overflow: 'hidden', background: darkMode ? 'rgba(255,255,255,0.02)' : '#f8f9fa' }}>
+                  <div className="d-flex align-items-center justify-content-center project-media" style={{ height: '200px', overflow: 'hidden', background: darkMode ? 'rgba(255,255,255,0.02)' : '#f8f9fa' }}>
                     <img
                       src={project.image}
                       alt={project.title}
@@ -131,7 +131,7 @@ const Projects = ({ darkMode }) => {
                         </Badge>
                       ))}
                     </div>
-                    <div className="d-flex flex-wrap gap-2">
+                    <div className="d-flex flex-wrap gap-2 project-actions">
                       {project.frontcode && (
                         <Button
                           href={project.frontcode}
