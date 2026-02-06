@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa';
 import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
 import celulares1 from '../assets/celulares1.png'; // Asegúrate de que el nombre coincida
-import angus from '../assets/angus.png';  
+import angus from '../assets/angus.png';
+import gretta from '../assets/gretta.png';
+import horus from '../assets/horus.png';
 import TextPressure from './TextPressure';
 
 const Projects = ({ darkMode }) => {
@@ -39,6 +41,30 @@ const Projects = ({ darkMode }) => {
       frontcode: 'https://github.com/alejoalf/Sistema-bar',
       demo: 'https://sistema-bar-vert.vercel.app/'
     },
+    {
+      title: 'Gretta',
+      description: 'Landing para cafetería, heladería y pastelería con carta visual y llamadas a la acción directas.',
+      image: gretta,
+      tags: ['React', 'Tailwind'],
+      tech: ['React', 'Tailwind CSS', 'Vite', 'Responsive design'],
+      highlights: [
+        'Carta digital con secciones para cafés, helados y pastelería.',
+        'Promos destacadas y galería de productos para captar atención.',
+        'Botones rápidos para pedidos y reservas por WhatsApp.'
+      ]
+    },
+    {
+      title: 'HorusTech',
+      description: 'Sitio de la organización dedicada a desarrollar páginas web y sistemas para empresas y clientes.',
+      image: horus,
+      tags: ['React', 'Branding'],
+      tech: ['React', 'Vite', 'Lead capture', 'Landing page'],
+      highlights: [
+        'Presentación clara de servicios de desarrollo web y sistemas.',
+        'Sección de casos y propuesta de valor orientada a empresas.',
+        'CTA directa a contacto para nuevas colaboraciones.'
+      ]
+    }
 
   ];
 
