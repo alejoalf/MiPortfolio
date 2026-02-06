@@ -43,18 +43,6 @@ const Projects = ({ darkMode }) => {
       demo: 'https://sistema-bar-vert.vercel.app/'
     },
     {
-      title: 'Gretta',
-      description: 'Landing para cafetería, heladería y pastelería con carta visual y llamadas a la acción directas.',
-      image: gretta,
-      tags: ['React', 'Tailwind'],
-      tech: ['React', 'Tailwind CSS', 'Vite', 'Responsive design'],
-      highlights: [
-        'Carta digital con secciones para cafés, helados y pastelería.',
-        'Promos destacadas y galería de productos para captar atención.',
-        'Botones rápidos para pedidos y reservas por WhatsApp.'
-      ]
-    },
-    {
       title: 'HorusTech',
       description: 'Sitio de la organización dedicada a desarrollar páginas web y sistemas para empresas y clientes.',
       image: horus,
@@ -64,7 +52,8 @@ const Projects = ({ darkMode }) => {
         'Presentación clara de servicios de desarrollo web y sistemas.',
         'Sección de casos y propuesta de valor orientada a empresas.',
         'CTA directa a contacto para nuevas colaboraciones.'
-      ]
+      ],
+      demo: 'https://horus-tech.vercel.app/'
     },
     {
       title: 'Hand Gesture Controller',
@@ -76,7 +65,8 @@ const Projects = ({ darkMode }) => {
         'Detección de mano y tracking de puntos clave en tiempo real.',
         'Mapeo de gestos a acciones del sistema o navegador.',
         'Interfaz sin contacto para accesibilidad y control rápido.'
-      ]
+      ],
+      github: 'https://github.com/alejoalf/control_gestos'
     }
 
   ];
