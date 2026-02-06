@@ -6,6 +6,7 @@ import celulares1 from '../assets/celulares1.png'; // Asegúrate de que el nombr
 import angus from '../assets/angus.png';
 import gretta from '../assets/gretta.png';
 import horus from '../assets/horus.png';
+import detector from '../assets/detector.png';
 import TextPressure from './TextPressure';
 
 const Projects = ({ darkMode }) => {
@@ -63,6 +64,18 @@ const Projects = ({ darkMode }) => {
         'Presentación clara de servicios de desarrollo web y sistemas.',
         'Sección de casos y propuesta de valor orientada a empresas.',
         'CTA directa a contacto para nuevas colaboraciones.'
+      ]
+    },
+    {
+      title: 'Hand Gesture Controller',
+      description: "Control de interfaz 'sin contacto' mediante visión artificial. Detecta coordenadas de la mano en tiempo real para manejar el navegador/sistema.",
+      image: detector,
+      tags: ['Python', 'OpenCV'],
+      tech: ['Python', 'OpenCV', 'MediaPipe', 'Computer vision'],
+      highlights: [
+        'Detección de mano y tracking de puntos clave en tiempo real.',
+        'Mapeo de gestos a acciones del sistema o navegador.',
+        'Interfaz sin contacto para accesibilidad y control rápido.'
       ]
     }
 
