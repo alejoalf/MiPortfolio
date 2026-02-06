@@ -87,6 +87,23 @@
   filter: saturate(1.1);
 }
 
+.project-card .card-title {
+  color: #f4f7fb;
+  font-weight: 700;
+}
+
+.project-card .card-text {
+  color: #cbd5e1;
+}
+
+.project-card.light .card-title {
+  color: #0b0f13;
+}
+
+.project-card.light .card-text {
+  color: #313b46;
+}
+
 .project-card:hover img {
   transform: scale(1.04);
 }
