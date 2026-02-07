@@ -22,31 +22,56 @@ import {
 } from 'react-icons/fa';
 
 const Skills = ({ darkMode }) => {
-  const techItems = [
-    { label: 'Python', icon: <FaPython /> },
-    { label: 'HTML5', icon: <FaHtml5 /> },
-    { label: 'CSS', icon: <FaCss3Alt /> },
-    { label: 'JavaScript', icon: <FaJs /> },
-    { label: 'React', icon: <FaReact /> },
-    { label: 'Node.js', icon: <FaNodeJs /> },
-    { label: 'MySQL', icon: <FaDatabase /> },
-    { label: 'Postgres', icon: <FaDatabase /> },
-    { label: 'Bootstrap', icon: <FaBootstrap /> },
-    { label: 'TailwindCSS', icon: <FaCode /> },
-    { label: 'Supabase (Auth/Backend)', icon: <FaCloud /> },
-    { label: 'Gemini API', icon: <FaRobot /> },
-    { label: 'SpeechRecognition', icon: <FaMicrophone /> },
-    { label: 'pyttsx3', icon: <FaMicrophone /> },
-    { label: 'MediaPipe', icon: <FaProjectDiagram /> },
-    { label: 'JWT', icon: <FaKey /> },
-    { label: 'Socket.IO', icon: <FaProjectDiagram /> },
-    { label: 'REST APIs', icon: <FaServer /> },
-    { label: 'Git', icon: <FaGitAlt /> },
-    { label: 'GitHub', icon: <FaGithub /> },
-    { label: 'Visual Studio Code', icon: <FaCode /> },
-    { label: 'Gestion de repositorios', icon: <FaGitAlt /> },
-    { label: 'Control de versiones', icon: <FaGitAlt /> },
-    { label: 'Python os', icon: <FaTools /> }
+  const techGroups = [
+    {
+      title: 'Lenguajes',
+      items: [
+        { label: 'Python', icon: <FaPython className="text-info" /> },
+        { label: 'HTML5', icon: <FaHtml5 className="text-warning" /> },
+        { label: 'CSS', icon: <FaCss3Alt className="text-primary" /> },
+        { label: 'JavaScript', icon: <FaJs className="text-warning" /> }
+      ]
+    },
+    {
+      title: 'Data Base',
+      items: [
+        { label: 'MySQL', icon: <FaDatabase className="text-warning" /> },
+        { label: 'Postgres', icon: <FaDatabase className="text-primary" /> }
+      ]
+    },
+    {
+      title: 'Frameworks y Front',
+      items: [
+        { label: 'React', icon: <FaReact className="text-info" /> },
+        { label: 'Node.js', icon: <FaNodeJs className="text-success" /> },
+        { label: 'Bootstrap', icon: <FaBootstrap className="text-purple" /> },
+        { label: 'TailwindCSS', icon: <FaCode className="text-info" /> }
+      ]
+    },
+    {
+      title: 'APIs y Librerias',
+      items: [
+        { label: 'Supabase (Auth/Backend)', icon: <FaCloud className="text-success" /> },
+        { label: 'Gemini API', icon: <FaRobot className="text-warning" /> },
+        { label: 'SpeechRecognition', icon: <FaMicrophone className="text-info" /> },
+        { label: 'pyttsx3', icon: <FaMicrophone className="text-info" /> },
+        { label: 'MediaPipe', icon: <FaProjectDiagram className="text-primary" /> },
+        { label: 'JWT', icon: <FaKey className="text-warning" /> },
+        { label: 'Socket.IO', icon: <FaProjectDiagram className="text-info" /> },
+        { label: 'REST APIs', icon: <FaServer className="text-success" /> }
+      ]
+    },
+    {
+      title: 'Herramientas y entorno',
+      items: [
+        { label: 'Git', icon: <FaGitAlt className="text-warning" /> },
+        { label: 'GitHub', icon: <FaGithub className="text-light" /> },
+        { label: 'Visual Studio Code', icon: <FaCode className="text-info" /> },
+        { label: 'Gestion de repositorios', icon: <FaGitAlt className="text-warning" /> },
+        { label: 'Control de versiones', icon: <FaGitAlt className="text-warning" /> },
+        { label: 'Python os', icon: <FaTools className="text-success" /> }
+      ]
+    }
   ];
 
   return (
@@ -65,29 +90,30 @@ const Skills = ({ darkMode }) => {
           <div className="section-title-accent" data-scrub="accent"></div>
         </motion.div>
         
-        <Row className="g-4" data-animate-child>
-          {techItems.map((item, index) => (
-            <Col md={6} lg={4} key={item.label}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.04 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className={`card h-100 tech-group tech-card ${darkMode ? '' : 'light'}`}
-              >
-                <div className="card-body">
-                  <span className={`tech-badge ${darkMode ? '' : 'light'}`}>
-                    <span className="tech-badge-icon" aria-hidden="true">
-                      {item.icon}
-                    </span>
-                    {item.label}
-                  </span>
+        <div className="tech-groups" data-animate-child>
+          <Row className="g-4">
+            {techGroups.map(group => (
+              <Col md={6} lg={4} key={group.title}>
+                <div className={`tech-group ${darkMode ? '' : 'light'}`}>
+                  <h3 className="fs-5 fw-semibold mb-3">{group.title}</h3>
+                  <div className="d-flex flex-wrap gap-2">
+                    {group.items.map(item => (
+                      <span
+                        key={`${group.title}-${item.label}`}
+                        className={`tech-badge tech-badge-large ${darkMode ? '' : 'light'}`}
+                      >
+                        <span className="tech-badge-icon" aria-hidden="true">
+                          {item.icon}
+                        </span>
+                        {item.label}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            </Col>
-          ))}
-        </Row>
+              </Col>
+            ))}
+          </Row>
+        </div>
       </Container>
     </section>
   );
