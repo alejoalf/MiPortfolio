@@ -103,14 +103,14 @@ const Hero = ({ darkMode }) => {
   return (
     <section
       id="home"
-      data-animate="section"
+      data-animate="fade-up"
       className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'} position-relative soft-grid`}
       style={{ minHeight: '100vh', paddingTop: '80px', display: 'flex', alignItems: 'center' }}
       ref={heroRef}
     >
       <Container className="section-shell">
         <Row className="align-items-center g-4">
-          <Col lg={6} className="mb-5 mb-lg-0">
+          <Col lg={6} className="mb-5 mb-lg-0" data-animate-child>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -165,7 +165,7 @@ const Hero = ({ darkMode }) => {
             </motion.div>
           </Col>
 
-          <Col lg={6} className="text-center">
+          <Col lg={6} className="text-center" data-animate-child>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}

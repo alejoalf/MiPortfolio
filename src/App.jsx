@@ -31,23 +31,65 @@ function App() {
 
       ScrollTrigger.defaults({ scroller });
 
-      gsap.utils.toArray('[data-animate="section"]').forEach(section => {
-        gsap.fromTo(
-          section,
-          { autoAlpha: 0, y: 40 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
+      gsap.utils.toArray('[data-animate]').forEach(section => {
+        const variant = section.dataset.animate || 'fade-up';
+        const base = { autoAlpha: 0 };
+        const to = {
+          autoAlpha: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 78%',
+            end: 'bottom 60%',
+            toggleActions: 'play none none reverse'
+          }
+        };
+
+        switch (variant) {
+          case 'fade-left':
+            base.x = -60;
+            to.x = 0;
+            break;
+          case 'fade-right':
+            base.x = 60;
+            to.x = 0;
+            break;
+          case 'fade-down':
+            base.y = -50;
+            to.y = 0;
+            break;
+          case 'zoom-in':
+            base.scale = 0.94;
+            to.scale = 1;
+            break;
+          case 'tilt-in':
+            base.y = 40;
+            base.rotateX = 8;
+            to.y = 0;
+            to.rotateX = 0;
+            break;
+          default:
+            base.y = 40;
+            to.y = 0;
+        }
+
+        gsap.fromTo(section, base, to);
+
+        const childItems = section.querySelectorAll('[data-animate-child]');
+        if (childItems.length) {
+          gsap.from(childItems, {
+            y: 24,
+            autoAlpha: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.08,
             scrollTrigger: {
               trigger: section,
-              start: 'top 78%',
-              end: 'bottom 60%',
-              toggleActions: 'play none none reverse'
+              start: 'top 75%'
             }
-          }
-        );
+          });
+        }
       });
 
       gsap.utils.toArray('[data-parallax]').forEach(element => {

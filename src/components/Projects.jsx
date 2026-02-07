@@ -86,7 +86,7 @@ const Projects = ({ darkMode }) => {
   ];
 
   return (
-    <section id="projects" data-animate="section" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+    <section id="projects" data-animate="zoom-in" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
       <Container className="py-5 section-shell">
         <div className="section-divider" aria-hidden="true"></div>
         <motion.div

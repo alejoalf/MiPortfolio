@@ -29,7 +29,7 @@ const Contact = ({ darkMode }) => {
   };
 
   return (
-    <section id="contact" data-animate="section" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+    <section id="contact" data-animate="fade-down" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
       <Container className="py-5 section-shell">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

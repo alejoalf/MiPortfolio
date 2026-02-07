@@ -13,7 +13,7 @@ const Skills = ({ darkMode }) => {
   ];
 
   return (
-    <section id="skills" data-animate="section" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+    <section id="skills" data-animate="fade-right" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
       <Container className="py-5 section-shell">
         <div className="section-divider" aria-hidden="true"></div>
         <motion.div

@@ -4,7 +4,7 @@ import perfil from '../assets/perfil2.png'; // Asegúrate de que la ruta y el no
 
 const About = ({ darkMode }) => {
   return (
-    <section id="about" data-animate="section" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+    <section id="about" data-animate="fade-left" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
       <Container className="py-5 section-shell">
         <div className="section-divider" aria-hidden="true"></div>
         <motion.div
