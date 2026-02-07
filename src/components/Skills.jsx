@@ -1,15 +1,52 @@
 import { motion } from 'framer-motion';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaPython,
+  FaBootstrap,
+  FaGithub,
+  FaGitAlt,
+  FaCode,
+  FaCloud,
+  FaMicrophone,
+  FaRobot,
+  FaProjectDiagram,
+  FaTools,
+  FaKey,
+  FaServer
+} from 'react-icons/fa';
 
 const Skills = ({ darkMode }) => {
-  const skills = [
-    { name: 'HTML', icon: <FaHtml5 className="text-warning" size={40} />, level: 90 },
-    { name: 'CSS', icon: <FaCss3Alt className="text-primary" size={40} />, level: 85 },
-    { name: 'JavaScript', icon: <FaJs className="text-warning" size={40} />, level: 80 },
-    { name: 'React', icon: <FaReact className="text-info" size={40} />, level: 85 },
-    { name: 'Node.js', icon: <FaNodeJs className="text-success" size={40} />, level: 75 },
-    { name: 'Bases de Datos', icon: <FaDatabase className="text-secondary" size={40} />, level: 70 },
+  const techItems = [
+    { label: 'Python', icon: <FaPython /> },
+    { label: 'HTML5', icon: <FaHtml5 /> },
+    { label: 'CSS', icon: <FaCss3Alt /> },
+    { label: 'JavaScript', icon: <FaJs /> },
+    { label: 'React', icon: <FaReact /> },
+    { label: 'Node.js', icon: <FaNodeJs /> },
+    { label: 'MySQL', icon: <FaDatabase /> },
+    { label: 'Postgres', icon: <FaDatabase /> },
+    { label: 'Bootstrap', icon: <FaBootstrap /> },
+    { label: 'TailwindCSS', icon: <FaCode /> },
+    { label: 'Supabase (Auth/Backend)', icon: <FaCloud /> },
+    { label: 'Gemini API', icon: <FaRobot /> },
+    { label: 'SpeechRecognition', icon: <FaMicrophone /> },
+    { label: 'pyttsx3', icon: <FaMicrophone /> },
+    { label: 'MediaPipe', icon: <FaProjectDiagram /> },
+    { label: 'JWT', icon: <FaKey /> },
+    { label: 'Socket.IO', icon: <FaProjectDiagram /> },
+    { label: 'REST APIs', icon: <FaServer /> },
+    { label: 'Git', icon: <FaGitAlt /> },
+    { label: 'GitHub', icon: <FaGithub /> },
+    { label: 'Visual Studio Code', icon: <FaCode /> },
+    { label: 'Gestion de repositorios', icon: <FaGitAlt /> },
+    { label: 'Control de versiones', icon: <FaGitAlt /> },
+    { label: 'Python os', icon: <FaTools /> }
   ];
 
   return (
@@ -28,32 +65,24 @@ const Skills = ({ darkMode }) => {
           <div className="section-title-accent" data-scrub="accent"></div>
         </motion.div>
         
-        <Row className="g-4">
-          {skills.map((skill, index) => (
-            <Col md={6} lg={4} key={index}>
+        <Row className="g-4" data-animate-child>
+          {techItems.map((item, index) => (
+            <Col md={6} lg={4} key={item.label}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.04 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`card h-100 card-raise ${darkMode ? '' : 'light'}`}
+                className={`card h-100 tech-group tech-card ${darkMode ? '' : 'light'}`}
               >
                 <div className="card-body">
-                  <div className="d-flex align-items-center mb-3">
-                    {skill.icon}
-                    <h3 className="ms-3 fs-5 fw-semibold">{skill.name}</h3>
-                  </div>
-                  <div className={`skill-progress ${darkMode ? '' : 'light'}`}>
-                    <motion.div
-                      className="skill-progress-fill"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, ease: 'easeOut', delay: index * 0.08 }}
-                    />
-                  </div>
-                  <p className="mt-2 text-end mb-0">{skill.level}%</p>
+                  <span className={`tech-badge ${darkMode ? '' : 'light'}`}>
+                    <span className="tech-badge-icon" aria-hidden="true">
+                      {item.icon}
+                    </span>
+                    {item.label}
+                  </span>
                 </div>
               </motion.div>
             </Col>

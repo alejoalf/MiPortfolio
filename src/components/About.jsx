@@ -52,6 +52,16 @@ const About = ({ darkMode }) => {
               <p className="mb-4 text-muted">
                 Mi objetivo es construir interfaces limpias, accesibles y rápidas que entreguen valor real a usuarios y negocios.
               </p>
+              <div className="extras-block mb-4">
+                <ul className="extras-list">
+                  <li>Pensamiento logico</li>
+                  <li>Resolucion de problemas</li>
+                  <li>Autonomia para aprender</li>
+                  <li>Mentalidad de producto</li>
+                  <li>Orientacion a soluciones reales</li>
+                  <li>Experiencia real con clientes</li>
+                </ul>
+              </div>
               
               <Row className="mb-4 gy-3">
                 <Col sm={6}>
