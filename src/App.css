@@ -200,6 +200,44 @@
   display: inline-block;
 }
 
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.split-word > span {
+  display: inline-block;
+}
+
+.hero-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 0.6ch;
+  animation: typing-blink 0.9s steps(1) infinite;
+  opacity: 0.9;
+}
+
+@keyframes typing-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.magnetic-target {
+  display: inline-flex;
+  will-change: transform;
+}
+
+.hero-media-pin {
+  position: relative;
+}
+
 .modal-tech-badge.light {
   background: rgba(141, 241, 79, 0.2);
   color: #0a1a0c;

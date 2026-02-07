@@ -29,7 +29,7 @@ const Contact = ({ darkMode }) => {
   };
 
   return (
-    <section id="contact" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
+    <section id="contact" data-animate="section" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
       <Container className="py-5 section-shell">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -40,7 +40,7 @@ const Contact = ({ darkMode }) => {
         >
           <div className={`eyebrow mb-3 ${darkMode ? '' : 'light'}`}>Contacto</div>
           <h2 className="display-5 fw-bold mb-3">Cuéntame tu idea</h2>
-          <div className="section-title-accent"></div>
+          <div className="section-title-accent" data-scrub="accent"></div>
         </motion.div>
         
         <Row className="g-4">

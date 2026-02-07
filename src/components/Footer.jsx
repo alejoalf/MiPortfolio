@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = ({ darkMode }) => {
   return (
-    <footer className={`py-4 footer-accent ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark light'}`}>
+    <footer data-animate="section" className={`py-4 footer-accent ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark light'}`}>
       <Container>
         <Row className="py-4 align-items-center">
           <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
