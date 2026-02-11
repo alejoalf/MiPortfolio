@@ -34,7 +34,7 @@ const ProjectDetail = () => {
             <h1 className="fw-bold mb-1">{project.title}</h1>
             <p className="text-light mb-0">{project.description}</p>
           </div>
-          <Link to="/" className="btn btn-outline-light btn-animated">Volver</Link>
+          <Link to="/#projects" className="btn btn-outline-light btn-animated">Volver</Link>
         </div>
 
         <Row className="g-4 align-items-center">

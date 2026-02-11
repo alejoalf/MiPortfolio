@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
@@ -14,6 +15,7 @@ import LetterGlitch from './components/LetterGlitch';
 
 function App() {
   const darkMode = true;
+  const location = useLocation();
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -147,6 +149,30 @@ function App() {
     document.body.classList.add('bg-dark');
     document.body.classList.remove('bg-light');
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    let attempts = 0;
+    const tryScroll = () => {
+      const target = document.querySelector(location.hash);
+      if (target) {
+        window.dispatchEvent(
+          new CustomEvent('scrollstack:scrollto', {
+            detail: { selector: location.hash, offset: -24 }
+          })
+        );
+        return;
+      }
+
+      if (attempts < 12) {
+        attempts += 1;
+        requestAnimationFrame(tryScroll);
+      }
+    };
+
+    tryScroll();
+  }, [location]);
 
   return (
     <div className={darkMode ? 'bg-dark text-light' : 'bg-light text-dark'} style={{ height: '100vh', overflow: 'hidden', position: 'relative' }}>

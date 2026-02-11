@@ -270,6 +270,28 @@ const ScrollStack = ({
 
         setupLenis();
 
+        const handleExternalScroll = event => {
+            const detail = event?.detail || {};
+            const selector = detail.selector;
+            const offset = Number(detail.offset || 0);
+            const target = selector ? scroller.querySelector(selector) : null;
+
+            if (lenisRef.current?.scrollTo) {
+                if (target) {
+                    lenisRef.current.scrollTo(target, { offset, immediate: true });
+                } else if (Number.isFinite(detail.top)) {
+                    lenisRef.current.scrollTo(detail.top, { immediate: true });
+                }
+            } else if (target) {
+                const top = target.offsetTop + offset;
+                scroller.scrollTop = Math.max(0, top);
+            } else if (Number.isFinite(detail.top)) {
+                scroller.scrollTop = Math.max(0, detail.top);
+            }
+        };
+
+        window.addEventListener('scrollstack:scrollto', handleExternalScroll);
+
         updateCardTransforms();
 
         return () => {
@@ -279,6 +301,7 @@ const ScrollStack = ({
             if (lenisRef.current) {
                 lenisRef.current.destroy();
             }
+            window.removeEventListener('scrollstack:scrollto', handleExternalScroll);
             stackCompletedRef.current = false;
             cardsRef.current = [];
             transformsCache.clear();
