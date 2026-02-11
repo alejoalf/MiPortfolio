@@ -1,89 +1,12 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa';
-import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
-import celulares1 from '../assets/celulares1.png'; // Asegúrate de que el nombre coincida
-import angus from '../assets/angus.png';
-import gretta from '../assets/gretta.png';
-import horus from '../assets/horus.png';
-import detector from '../assets/detector.png';
-import ia from '../assets/ia.png';
+import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import TextPressure from './TextPressure';
+import { projects } from '../data/projects';
 
 const Projects = ({ darkMode }) => {
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const projects = [
-    {
-      title: 'Rio cuarto celulares',
-      description: 'Aplicación de comercio electrónico con carrito de compras y pasarela de pago para un negocio de venta de celulares.',
-      image: celulares1,
-      tags: ['React', 'Node.js', 'PostgreSQL'],
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Bootstrap'],
-      highlights: [
-        'Checkout con pasarela de pago y control de stock en tiempo real.',
-        'Panel de administración para productos, órdenes y usuarios.',
-        'Despliegue serverless con CI sencillo.'
-      ],
-      frontcode: 'https://github.com/alejoalf/frontriocuartocelulares',
-      backcode: 'https://github.com/alejoalf/frontriocuartocelulares',
-      demo: 'https://riocuartocelulares.vercel.app/'
-    },
-     {
-      title: 'Angus bar',
-      description: 'Sistema web para el manejo de pedidos en un bar en tiempo real y gestion de productos.',
-      image: angus,
-      tags: ['React', 'Supabase'],
-      tech: ['React', 'Supabase', 'Realtime', 'Role-based auth'],
-      highlights: [
-        'Pedidos en vivo por mesa y estado, sincronizados en Supabase Realtime.',
-        'Gestión de productos y disponibilidad editable por staff.',
-        'UI optimizada para tablets y barra.'
-      ],
-      frontcode: 'https://github.com/alejoalf/Sistema-bar',
-      demo: 'https://sistema-bar-vert.vercel.app/'
-    },
-    {
-      title: 'HorusTech',
-      description: 'Sitio de la organización dedicada a desarrollar páginas web y sistemas para empresas y clientes.',
-      image: horus,
-      tags: ['React', 'Branding'],
-      tech: ['React', 'Vite', 'Lead capture', 'Landing page'],
-      highlights: [
-        'Presentación clara de servicios de desarrollo web y sistemas.',
-        'Sección de casos y propuesta de valor orientada a empresas.',
-        'CTA directa a contacto para nuevas colaboraciones.'
-      ],
-      demo: 'https://horus-tech.vercel.app/'
-    },
-    {
-      title: 'Hand Gesture Controller',
-      description: "Control de interfaz 'sin contacto' mediante visión artificial. Detecta coordenadas de la mano en tiempo real para manejar el navegador/sistema.",
-      image: detector,
-      tags: ['Python', 'OpenCV'],
-      tech: ['Python', 'OpenCV', 'MediaPipe', 'Computer vision'],
-      highlights: [
-        'Detección de mano y tracking de puntos clave en tiempo real.',
-        'Mapeo de gestos a acciones del sistema o navegador.',
-        'Interfaz sin contacto para accesibilidad y control rápido.'
-      ],
-      github: 'https://github.com/alejoalf/control_gestos'
-    },
-    {
-      title: 'Asistente de Voz Inteligente con Memoria Persistente',
-      description: 'Desarrollo de un asistente virtual de escritorio inspirado en J.A.R.V.I.S., capaz de mantener conversaciones fluidas y naturales mediante voz. Implementa memoria de largo plazo con SQLite para recordar preferencias, proyectos y contextos previos.',
-      image: ia,
-      tags: ['LLMs', 'SQLite', 'Voice'],
-      tech: ['Gemini 1.5', 'Llama 3', 'SQLite', 'TTS/STT', 'Gestión de latencia'],
-      highlights: [
-        'Conversación por voz con contexto persistente entre sesiones.',
-        'Memoria de largo plazo para preferencias y proyectos del usuario.',
-        'Optimización de latencia y manejo de errores de API para respuesta casi instantánea.'
-      ],
-      github: 'https://github.com/alejoalf/Asistente-Con-IA'
-    }
-
-  ];
+  const orderedProjects = projects;
 
   return (
     <section id="projects" data-animate="zoom-in" className={`py-5 ${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
@@ -115,7 +38,7 @@ const Projects = ({ darkMode }) => {
         </motion.div>
 
         <Row className="g-4">
-          {projects.map((project, index) => (
+          {orderedProjects.map((project, index) => (
             <Col md={6} lg={4} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -146,6 +69,17 @@ const Projects = ({ darkMode }) => {
                       ))}
                     </div>
                     <div className="d-flex flex-wrap gap-2 project-actions">
+                      {project.slug && (
+                        <Button
+                          as={Link}
+                          to={`/project/${project.slug}`}
+                          variant={darkMode ? 'outline-light' : 'outline-dark'}
+                          size="sm"
+                          className="d-flex align-items-center"
+                        >
+                          <FaInfoCircle className="me-1" /> Detalles
+                        </Button>
+                      )}
                       {project.frontcode && (
                         <Button
                           href={project.frontcode}
@@ -194,14 +128,6 @@ const Projects = ({ darkMode }) => {
                           <FaExternalLinkAlt className="me-1" /> Demo
                         </Button>
                       )}
-                      <Button
-                        variant={darkMode ? 'outline-light' : 'outline-dark'}
-                        size="sm"
-                        onClick={() => setSelectedProject(project)}
-                        className="d-flex align-items-center"
-                      >
-                        <FaInfoCircle className="me-1" /> Detalles
-                      </Button>
                     </div>
                   </Card.Body>
                 </Card>
@@ -210,68 +136,6 @@ const Projects = ({ darkMode }) => {
           ))}
         </Row>
       </Container>
-
-      <Modal show={!!selectedProject} onHide={() => setSelectedProject(null)} centered size="lg" backdrop="static">
-        {selectedProject && (
-          <>
-            <Modal.Header closeButton className={darkMode ? 'bg-dark text-light' : ''}>
-              <Modal.Title>{selectedProject.title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className={darkMode ? 'bg-dark text-light' : ''}>
-              <p className="mb-3">{selectedProject.description}</p>
-              {selectedProject.highlights && (
-                <ul className="mb-3">
-                  {selectedProject.highlights.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              )}
-              {selectedProject.tech && (
-                <div className="mb-3">
-                  {selectedProject.tech.map((t, idx) => (
-                    <span key={idx} className={`modal-tech-badge ${darkMode ? '' : 'light'}`}>{t}</span>
-                  ))}
-                </div>
-              )}
-              <div className="d-flex flex-wrap gap-2">
-                {selectedProject.frontcode && (
-                  <Button
-                    href={selectedProject.frontcode}
-                    variant="outline-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="d-flex align-items-center code-button"
-                  >
-                    <FaGithub className="me-1" /> Front
-                  </Button>
-                )}
-                {selectedProject.backcode && (
-                  <Button
-                    href={selectedProject.backcode}
-                    variant="outline-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="d-flex align-items-center code-button"
-                  >
-                    <FaGithub className="me-1" /> Back
-                  </Button>
-                )}
-                {selectedProject.demo && (
-                  <Button
-                    href={selectedProject.demo}
-                    variant="primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="d-flex align-items-center code-button"
-                  >
-                    <FaExternalLinkAlt className="me-1" /> Demo
-                  </Button>
-                )}
-              </div>
-            </Modal.Body>
-          </>
-        )}
-      </Modal>
     </section>
   );
 };
